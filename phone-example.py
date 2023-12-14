@@ -1,12 +1,9 @@
 import pyotp
-import qrcode.image.svg
 from qrcode.main import QRCode
 import time
 
 totp = pyotp.TOTP("JBSWY3DPEHPK3PXP")
-
 url = pyotp.totp.TOTP('JBSWY3DPEHPK3PXP').provisioning_uri(name='test@google.com', issuer_name='Secure App')
-
 
 qr = QRCode()
 qr.add_data(data=url)
