@@ -1,0 +1,4 @@
+- `pip3 install -r requirements.txt`
+- `python3 time-based.py`
+- `python3 counter-based.py`
+- `python3 phone-example.py`
