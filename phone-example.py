@@ -1,13 +1,19 @@
 import pyotp
-import qrcode
 import qrcode.image.svg
+from qrcode.main import QRCode
+import time
 
 totp = pyotp.TOTP("JBSWY3DPEHPK3PXP")
-print("Current OTP:", totp.now())
 
 url = pyotp.totp.TOTP('JBSWY3DPEHPK3PXP').provisioning_uri(name='test@google.com', issuer_name='Secure App')
 
-img = qrcode.make(url, image_factory=qrcode.image.svg.SvgImage)
 
-with open('qr.svg', 'wb') as qr:
-    img.save(qr)
+qr = QRCode()
+qr.add_data(data=url)
+qr.print_ascii()
+
+time.sleep(10)
+
+while(True):
+    print("Current OTP:", totp.now())
+    time.sleep(1)
